@@ -1,0 +1,17 @@
+{
+    "name": "diego/blog-peliculas",
+    "description": "Proyecto Blog Peliculas",
+    "type": "project",
+    "autoload": {
+        "psr-4": {
+            "Diego\\BlogPeliculas\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Diego Armando Cruz Sepulveda",
+            "email": "diegocruzsep@gmail.com"
+        }
+    ],
+    "require": {}
+}

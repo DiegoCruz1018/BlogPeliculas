@@ -1,0 +1,41 @@
+:root{
+--fuente_principal: 'Poppins', sans-serif;
+
+--azul: #0da6f3;
+--rojo: #cb0000;
+--verde:#329f00;
+--negro: #1a1b15;
+--blanco: #FFFFFF;
+--gris: #e1e1e1;
+
+
+--delgada: 300;
+--regular : 400;
+--bold: 700;
+--black: 900
+}
+
+/* Globales */
+.contenedor {
+    width: 95%;
+    max-width: 120rem;
+    margin: 0 auto;
+}
+img {
+    max-width: 100%;
+}
+
+
+/* FOOTER */
+.seccion-footer{
+    background-color: var(--gris);
+    padding: 2rem 0;
+}
+.iconos{
+    margin-bottom: 40px;
+}
+@media (min-width: 768px) {
+    .iconos{
+        margin-bottom: 0;
+    }
+}
