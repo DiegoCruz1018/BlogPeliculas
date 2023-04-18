@@ -1,5 +1,6 @@
 <?php 
-    include 'includes/templates/header.php';
+    include 'includes/app.php';
+    incluirTemplate('header', $inicio = false);
 ?>  
     <main class="contenedor">
         <h3 class="titulo-parrafo">CONOCENOS</h3>
@@ -24,7 +25,7 @@
 
 
 <?php 
-    include 'includes/templates/footer.php';
+    incluirTemplate('footer');
 ?> 
 
 

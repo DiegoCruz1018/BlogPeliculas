@@ -1,6 +1,7 @@
 <?php 
-    include 'includes/templates/header-login.php'
-?>
+    include 'includes/app.php';
+    incluirTemplate('header-login', $inicio = false);
+?>  
 
         <div class="contenedor-app">
             <div class="imagen"></div>
@@ -51,7 +52,7 @@
                     </div>
 
                     <div class="campo">
-                        <label for="password">Password</label>
+                        <label for="password">Password:</label>
                         <input 
                             type="password"
                             id="password"
@@ -71,5 +72,5 @@
         </div>
 
 <?php 
-    include 'includes/templates/footer-login.php' 
+    incluirTemplate('footer-login'); 
 ?>

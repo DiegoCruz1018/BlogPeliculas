@@ -4,7 +4,7 @@
 ?>  
 
     <main class="container">
-        <h1>Titulo de la página</h1>
+        <h1>Categoría</h1>
     </main>
 
 <?php 

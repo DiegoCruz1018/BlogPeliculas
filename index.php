@@ -1,5 +1,6 @@
 <?php 
-    include 'includes/templates/header.php';
+    include 'includes/app.php';
+    incluirTemplate('header', $inicio = true);
 ?>  
 
     <main class="container mt-5">
@@ -8,11 +9,9 @@
    <div class="contenedor-imagen">
    
    </div>
-    
-
 
 <?php 
-    include 'includes/templates/footer.php';
+    incluirTemplate('footer');
 ?> 
 
 

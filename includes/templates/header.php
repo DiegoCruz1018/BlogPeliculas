@@ -9,12 +9,13 @@
     <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" href="css/nosotros.css">
     <link rel="stylesheet" href="css/index.css">
+    <link rel="icon" href="/BlogPeliculas/img/logo2.ico">
 </head>
   <body>
     <header style="background-color: #090909;">
         <nav class="navbar navbar-expand-lg bg-body-tertiary navbar-dark" data-bs-theme="dark">
             <div class="container-fluid">
-                <a class="navbar-brand p-enlace" href="index.php">Blog Peliculas</a>
+                <a class="navbar-brand p-enlace nav-margin" href="index.php">Blog Peliculas</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
                 </button>

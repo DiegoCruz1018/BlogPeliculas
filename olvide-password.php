@@ -1,6 +1,7 @@
 <?php 
-    include 'includes/templates/header-login.php'
-?>
+    include 'includes/app.php';
+    incluirTemplate('header-login', $inicio = false);
+?>  
         <div class="contenedor-app">
             <div class="imagen"></div>
 
@@ -30,5 +31,5 @@
         </div>
 
 <?php 
-    include 'includes/templates/footer-login.php'
+    incluirTemplate('footer-login');
 ?>
