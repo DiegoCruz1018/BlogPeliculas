@@ -119,8 +119,8 @@ p {
 .campo input{
     flex: 1;
     border: none;
-    padding: calc(var(--separacion) / 4);
-    border-radius: 1rem;
+    padding: calc(var(--separacion) / 2);
+    border-radius: .5rem;
 }
 
 .boton{

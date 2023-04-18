@@ -8,7 +8,7 @@
                 <h1 class="nombre-pagina" >Login</h1>
                 <p class="descripcion-pagina">Inicia Sesión con tus datos</p>
 
-                <form class="form" method="POST">
+                <form class="formulario" method="POST">
                     <div class="campo">
                         <label for="email">Email:</label>
                         <input 
