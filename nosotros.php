@@ -1,12 +1,14 @@
 <?php 
     include 'includes/templates/header.php';
 ?>  
-    <main>
-    <section class="contenedor sobre-nosotros">
-            <div class="contenedor-sobre-nosotros">
-                <img src="img/img1.jpg" alt="" class="imagen-about-us">
-                <div class="contenido-textos">
-                    <h3 class="titulo-parrafo">CONOCENOS</h3>
+    <main class="contenedor">
+        <h3 class="titulo-parrafo">CONOCENOS</h3>
+        <section class="sobre-nosotros container">
+            <div class="contenedor-sobre-nosotros row">
+                <div class="img-nosotros col-md-6">
+                    <img src="img/img1.jpg" alt="" class="imagen-about-us">
+                </div>
+                <div class="contenido-textos col-md-6">
                     <p>
                         Este blog esta conformado por colegas de la universidad, nuestro proposito es compartir nuestra aficion por el cine y la cerveza bien fria, tambien compartimos una serie de ideas, pensamientos, inquietudes, emociones, experiencias y risas.
                     </p>

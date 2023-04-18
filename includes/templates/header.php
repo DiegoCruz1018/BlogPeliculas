@@ -14,29 +14,29 @@
     <header style="background-color: #090909;">
         <nav class="navbar navbar-expand-lg bg-body-tertiary navbar-dark" data-bs-theme="dark">
             <div class="container-fluid">
-                <a class="navbar-brand" href="index.php">Blog Peliculas</a>
+                <a class="navbar-brand p-enlace" href="index.php">Blog Peliculas</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarNavDropdown">
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="nosotros.php">Nosotros</a>
+                        <a class="nav-link p-enlace" aria-current="page" href="nosotros.php">Nosotros</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="contacto.php">Contacto</a>
+                        <a class="nav-link p-enlace" href="contacto.php">Contacto</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="login.php">Iniciar Sesión</a>
+                        <a class="nav-link p-enlace" href="login.php">Iniciar Sesión</a>
                     </li>
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <a class="nav-link dropdown-toggle p-enlace" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                         Categorias
                     </a>
                     <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="#">Acción</a></li>
-                        <li><a class="dropdown-item" href="#">Drama</a></li>
-                        <li><a class="dropdown-item" href="#">Terror</a></li>
+                        <li><a class="dropdown-item p-enlace" href="#">Acción</a></li>
+                        <li><a class="dropdown-item p-enlace" href="#">Drama</a></li>
+                        <li><a class="dropdown-item p-enlace" href="#">Terror</a></li>
                     </ul>
                     </li>
                 </ul>

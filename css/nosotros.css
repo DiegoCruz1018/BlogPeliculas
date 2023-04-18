@@ -10,7 +10,7 @@ body{
     padding: 60px 0;
     width: 90%;
     max-width: 1000px;
-    margin: auto;
+    margin: 0 auto;
     overflow: hidden;
 }
 
@@ -24,11 +24,18 @@ body{
     justify-content: space-evenly;
 }
 .imagen-about-us{
-    width: 48%;
+    width: 100%;
+    margin-top: 0;
+    margin-bottom: 2rem;
+}
+@media (min-width: 768px) {
+    .imagen-about-us{
+        margin-top: 5rem;
+    }
 }
 
 .sobre-nosotros .contenido-textos{
-    width: 48%;
+    width: 50%;
 }
 
 .contenido-textos h3{
@@ -40,15 +47,14 @@ body{
     color: white;
     border-radius: 50%;
     display: inline-block;
-    text-align: center;
     width: 30px;
     height: 30px;
     padding: 4px;
     box-shadow: 0 0 6px 0 rgba(0, 0, 0);
     margin-right: 5px;
 }
-
-.contenido-textos p{
-    padding:  0px 0px 30px 15px;
+@media (min-width: 768px) {
+    .contenido-textos{
+        text-align: center;
+    }
 }
-

@@ -1,18 +1,80 @@
 :root{
---fuente_principal: 'Poppins', sans-serif;
+    --fuente_principal: 'Poppins', sans-serif;
+    
+    --azul: #0da6f3;
+    --rojo: #cb0000;
+    --verde:#329f00;
+    --negro: #090909;
+    --blanco: #FFFFFF;
+    --gris: #e1e1e1;
+    
+    
+    --delgada: 300;
+    --regular : 400;
+    --bold: 700;
+    --black: 900;
 
---azul: #0da6f3;
---rojo: #cb0000;
---verde:#329f00;
---negro: #1a1b15;
---blanco: #FFFFFF;
---gris: #e1e1e1;
+    --separacion: 5rem;
+}
 
+/** Globales **/
+html{
+    font-size: 62.5%;
+    box-sizing: border-box;
+    height: 100%;
+}
+body{
+    font-family: var(--fuente_principal);
+    font-size: 1.6rem;
+    min-height: 100%;
+    display: flex;
+    flex-direction: column;
+    background-color: var(--negro);
+    color: var(--blanco);
+    font-weight: var(--bold);
+    text-align: center;
+    margin: 0;
+    padding: 0;
+}
+a{
+    text-decoration: none;
+}
+h1, h2, h3 {
+    font-family: var(--fuente_principal);
+    margin: 0 0 calc(var(--separacion) / 2) 0 ;
+    font-weight: 900;
+    color: var(--blanco);
+    text-align: center;
+}
 
---delgada: 300;
---regular : 400;
---bold: 700;
---black: 900
+h1 {
+    font-size: 4rem;
+}
+h2 {
+    font-size: 3.6rem;
+}
+h3 {
+    font-size: 3rem;
+    text-align: center;
+}
+p {
+    color: var(--blanco);
+    font-size: 2rem;
+}
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+.nombre-pagina {
+    text-align: center;
+    margin-bottom: 2rem;
+    font-weight: var(--bold);
+}
+.descripcion-pagina {
+    text-align: center;
+    margin-top: 4rem;
+}
+.p-enlace{
+    font-size: 1.8rem;
 }
 
 /* Globales */
@@ -25,6 +87,53 @@ img {
     max-width: 100%;
 }
 
+/* Formulario */
+label{
+    font-weight: var(--bold);
+    text-transform: uppercase;
+    display: flex;
+}
+
+input:not([type="submit"]),
+textarea{
+    padding: 1rem;
+    width: 100%;
+    background-color: var(--blanco);
+    border: 1px solid var(--gris);
+    border-radius: 1rem;
+    margin-bottom: 2rem;
+}
+
+textarea{
+    height: 20rem;
+}
+
+.boton{
+    background-color: var(--rojo);
+    padding: 1.5rem 4rem;
+    color: var(--blanco);
+    margin-top: 1rem;
+    font-size: 2rem;
+    font-weight: 400;
+    display: inline-block;
+    font-weight: 700;
+    border: none;
+    transition-property: background-color;
+    transition-duration: .3s;
+    text-align: center;
+    display: block;
+    width: 100%;
+    border-radius: 1rem;
+}
+@media (min-width: 768px) {
+    .boton{
+        width: auto;
+    }
+}
+.boton:hover {
+    background-color: rgb(159, 7, 7);
+    cursor: pointer;
+}
 
 /* FOOTER */
 .seccion-footer{
