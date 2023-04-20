@@ -2,6 +2,6 @@
 
     namespace App;
 
-    class Pelicula{
+    class Pelicula extends ActiveRecord{
         
     }

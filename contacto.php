@@ -3,8 +3,8 @@
     incluirTemplate('header', $inicio = false);
 ?>  
 
-    <main class="contenedor">
-        <h1 class="nombre-pagina">Contacto</h1>
+    <main class="container">
+        <h1 class="mt-5">Contacto</h1>
 
         <img src="img/contacto.jpg" alt="Imagen Contacto">
 

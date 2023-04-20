@@ -144,6 +144,11 @@ textarea{
     cursor: pointer;
 }
 
+/** Peliculas **/
+.contenido-pelicula{
+    background-color: var(--rojo);
+}
+
 /* FOOTER */
 .seccion-footer{
     background-color: var(--gris);

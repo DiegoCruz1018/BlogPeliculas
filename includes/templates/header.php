@@ -35,9 +35,9 @@
                         Categorias
                     </a>
                     <ul class="dropdown-menu">
-                        <li><a class="dropdown-item p-enlace" href="#">Acción</a></li>
-                        <li><a class="dropdown-item p-enlace" href="#">Drama</a></li>
-                        <li><a class="dropdown-item p-enlace" href="#">Terror</a></li>
+                        <li><a class="dropdown-item p-enlace" href="categorias.php">Acción</a></li>
+                        <li><a class="dropdown-item p-enlace" href="categorias.php">Drama</a></li>
+                        <li><a class="dropdown-item p-enlace" href="categorias.php">Terror</a></li>
                     </ul>
                     </li>
                 </ul>
