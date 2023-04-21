@@ -24,6 +24,25 @@
                 </p>
             </div>
         </div>
+
+        <div>
+            <h3 class="mt-5">Escribe un comentario sobre la pelicula:</h3>
+
+            <form class="formulario">
+                <fieldset>
+                        
+                    <label for="nombre">Nombre:</label>
+                    <input type="text" name="nombre" placeholder="Tu Nombre" id="nombre">
+
+                    <label for="comentario">Comentario:</label>
+                    <textarea id="comentario" name="comentario" placeholder="Escribe un comentario..."></textarea>
+                </fieldset>
+
+                <div class="d-flex justify-content-end mb-4">
+                    <input type="submit" value="Comentar" class="boton">
+                </div>
+            </form>
+        </div>
     </main>
 
 <?php 

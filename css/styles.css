@@ -89,10 +89,23 @@ img {
 .nav-margin{
     font-size: 5rem;
 }
+@media (min-width: 568px) {
+    .nav-margin{
+        margin-right: 30rem;
+    }
+}
+
 @media (min-width: 768px) {
     .nav-margin{
-        margin-right: 65rem;
+        margin-left: 2rem;
+        margin-right: 35rem;
+    }
+}
+
+@media (min-width: 992px) {
+    .nav-margin{
         margin-left: 5rem;
+        margin-right: 60rem;
     }
 }
 

@@ -29,7 +29,7 @@
                 <textarea id="mensaje" name="mensaje" placeholder="Escribenos tu opinion..."></textarea>
             </fieldset>
 
-            <div class="d-flex justify-content-end">
+            <div class="d-flex justify-content-end mb-4">
                 <input type="submit" value="Enviar" class="boton">
             </div>
         </form>
