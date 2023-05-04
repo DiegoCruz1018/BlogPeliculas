@@ -110,6 +110,11 @@ img {
 }
 
 /* Formulario */
+legend{
+    font-size: 2rem;
+    color: var(--gris);
+}
+
 label{
     font-weight: var(--bold);
     text-transform: uppercase;
@@ -117,8 +122,10 @@ label{
 }
 
 input:not([type="submit"]),
-textarea{
+textarea,
+select{
     padding: 1rem;
+    display: block;
     width: 100%;
     background-color: var(--blanco);
     border: 1px solid var(--gris);
@@ -128,6 +135,13 @@ textarea{
 
 textarea{
     height: 20rem;
+}
+
+.forma-contacto{
+    max-width: 30rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .boton{
@@ -157,9 +171,136 @@ textarea{
     cursor: pointer;
 }
 
+.crear{
+    background-color: var(--azul);
+    padding: 1.5rem 4rem;
+    color: var(--blanco);
+    margin-top: 1rem;
+    font-size: 2rem;
+    font-weight: 400;
+    display: inline-block;
+    font-weight: 700;
+    border: none;
+    transition-property: background-color;
+    transition-duration: .3s;
+    text-align: center;
+    display: block;
+    width: 100%;
+    border-radius: 1rem;
+}
+@media (min-width: 768px) {
+    .crear{
+        width: auto;
+    }
+}
+.crear:hover {
+    background-color: #0c83be;
+    cursor: pointer;
+}
+
+.nuevo{
+    background-color: var(--verde);
+    padding: 1.5rem 4rem;
+    color: var(--blanco);
+    margin-top: 1rem;
+    font-size: 2rem;
+    font-weight: 400;
+    display: inline-block;
+    font-weight: 700;
+    border: none;
+    transition-property: background-color;
+    transition-duration: .3s;
+    text-align: center;
+    display: block;
+    width: 100%;
+    border-radius: 1rem;
+}
+@media (min-width: 768px) {
+    .nuevo{
+        width: auto;
+    }
+}
+.nuevo:hover {
+    background-color: #2f8906;
+    cursor: pointer;
+}
+
+.borrar{
+    background-color: var(--rojo);
+    border: none;
+    color: #fff;
+    display: block;
+    font-weight: 700;
+    margin-top: 2.5rem;
+    padding: 1rem 3rem;
+    text-align: center;
+    text-decoration: none;
+    width: 100%;
+    border-radius: 1rem;
+}
+
+.actualizar{
+    background-color: var(--verde);
+    border: none;
+    color: #fff;
+    display: block;
+    font-weight: 700;
+    margin-top: 2.5rem;
+    padding: 1rem 3rem;
+    text-align: center;
+    text-decoration: none;
+    width: 100%;
+    border-radius: 1rem;
+}
+
+/** Alertas **/
+
+.error{
+    background-color: var(--rojo);
+    padding: .5rem;
+    text-align: center;
+    color: var(--blanco);
+    font-weight: bold;
+    text-transform: uppercase;
+    margin: 1rem 0;
+}
+.exito{
+    background-color: var(--verde);
+    padding: .5rem;
+    text-align: center;
+    color: var(--blanco);
+    font-weight: bold;
+    text-transform: uppercase;
+    margin: 1rem 0;
+}
+
 /** Peliculas **/
 .contenido-pelicula{
     background-color: var(--rojo);
+}
+
+/** Tabla CRUD **/
+.peliculas{
+    margin-top: 4rem;
+    width: 100%;
+    border-spacing: 0;
+    text-align: center;
+    margin-bottom: 4rem;
+}
+table thead{
+    background-color: var(--azul);
+}
+table th{
+    color: var(--blanco);
+    padding: 2rem;
+}
+table .imagen-tabla{
+    width: 10rem;
+}
+
+.formulario .imagen-small{
+    width: 20rem;
+    display: flex;
 }
 
 /* FOOTER */

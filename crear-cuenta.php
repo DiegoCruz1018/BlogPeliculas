@@ -8,7 +8,7 @@
 
             <div class="app">
                 <h1 class="nombre-pagina">Crear Cuenta</h1></h1>
-                <p class="descripcion-pagina">Llena el formulario para crear una cuenta</p>
+                <p class="descripcion-pagina">Crear una cuenta para que puedas comentar nuestras peliculas</p>
 
                 <form class="form" method="POST">
                     <div class="campo">

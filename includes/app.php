@@ -4,6 +4,10 @@ require 'funciones.php';
 require 'config/database.php';
 require __DIR__ . '/../vendor/autoload.php';
 
-use App\Pelicula;
+//Conectarnos a la BD
 
-$pelicula = new Pelicula;
+$db = conectarDB();
+
+use App\ActiveRecord;
+
+ActiveRecord::setDB($db);

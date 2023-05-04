@@ -17,7 +17,7 @@
             </div>
         </footer>
 
-        <script src="js/bootstrap.bundle.min.js"></script>
-        <script src="js/fontawesome.js"></script>
+        <script src="/BlogPeliculas/js/bootstrap.bundle.min.js"></script>
+        <script src="/BlogPeliculas/js/fontawesome.js"></script>
     </body>
 </html>

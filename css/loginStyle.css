@@ -151,6 +151,33 @@ p {
     cursor: pointer;
 }
 
+.crear{
+    background-color: var(--rojo);
+    padding: 1.5rem 4rem;
+    color: var(--blanco);
+    margin-top: 1rem;
+    font-size: 2rem;
+    font-weight: 400;
+    display: inline-block;
+    font-weight: 700;
+    border: none;
+    transition-property: background-color;
+    transition-duration: .3s;
+    text-align: center;
+    display: block;
+    width: 100%;
+    border-radius: 1rem;
+}
+@media (min-width: 768px) {
+    .crear{
+        width: auto;
+    }
+}
+.crear:hover {
+    background-color: rgb(159, 7, 7);
+    cursor: pointer;
+}
+
 .acciones{
     margin-top: var(--separacion);
 }
