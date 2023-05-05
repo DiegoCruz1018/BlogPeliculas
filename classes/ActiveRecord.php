@@ -42,11 +42,7 @@
 
             $resultado = self::$db->query($query);
 
-            //Mensaje de exito
-            if($resultado){
-                //Redireccionar al usuario
-                header('Location: /BlogPeliculas/admin/indexPelicula.php?resultado=1');
-            }
+            return $resultado;
         }
 
         public function actualizar(){

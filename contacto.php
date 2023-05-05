@@ -2,8 +2,33 @@
     include 'includes/app.php';
 
     use App\Categoria;
+    use App\Contacto;
 
+    //Instancia para contacto
+    $contacto = new Contacto;
+
+    //Obtener todas las categorias
     $categorias = Categoria::all();
+
+    //Obtener errores
+    $errores = Contacto::getErrores();
+
+    //Muestra mensaje condicional
+    $resultado = $_GET['resultado'] ?? null;
+
+    if($_SERVER['REQUEST_METHOD'] == 'POST'){
+        
+        //Crear una nueva instancia
+        $contacto = new Contacto($_POST['contacto']);
+
+        //Validar
+        $errores = $contacto->validar();
+
+        if(empty($errores)){
+            //Guardar en la BD
+            $contacto->guardar();
+        }
+    }
 
     incluirTemplate('header', $inicio = false);
 ?>  
@@ -45,27 +70,40 @@
     <main class="container">
         <h1 class="mt-5">Contacto</h1>
 
+        <?php 
+            $mensaje = mostrarNotificacion(intval($resultado));
+
+            if($mensaje): ?>
+                <p class="exito"> <?php echo s($mensaje); ?> </p>
+        <?php endif; ?>
+
         <img src="img/contacto.jpg" alt="Imagen Contacto">
 
         <h2 class="descripcion-pagina">Llene el formulario de contacto</h2>
 
-        <form class="formulario">
+        <?php foreach($errores as $error): ?>
+            <div class="error">
+                <?php echo $error; ?>
+            </div>
+        <?php endforeach; ?>
+
+        <form class="formulario" method="POST">
             <fieldset>
                     
                 <label for="nombre">Nombre:</label>
-                <input type="text" name="nombre" placeholder="Tu Nombre" id="nombre">
+                <input type="text" name="contacto[nombre]" placeholder="Tu Nombre" id="nombre" value="<?php echo s($contacto->nombre); ?>">
 
                 <label for="apellido">Apellido:</label>
-                <input type="text" name="apellido" placeholder="Tu Apellido" id="apellido">
+                <input type="text" name="contacto[apellido]" placeholder="Tu Apellido" id="apellido" value="<?php echo s($contacto->apellido); ?>">
 
                 <label for="email">E-mail:</label>
-                <input type="email" name="email" placeholder="Tu Email" id="email">
+                <input type="email" name="contacto[correo]" placeholder="Tu Email" id="email" value="<?php echo s($contacto->correo); ?>">
 
                 <label for="telefono">Telefono:</label>
-                <input type="tel" name="telefono" placeholder="Tu Telefono" id="telefono">
+                <input type="tel" name="contacto[telefono]" placeholder="Tu Telefono" id="telefono" value="<?php echo s($contacto->telefono); ?>">
 
                 <label for="mensaje">Mensaje:</label>
-                <textarea id="mensaje" name="mensaje" placeholder="Escribenos tu opinion..."></textarea>
+                <textarea id="mensaje" name="contacto[mensaje]" placeholder="Escribenos tu opinion..."><?php echo s($contacto->mensaje); ?></textarea>
             </fieldset>
 
             <div class="d-flex justify-content-end mb-4">

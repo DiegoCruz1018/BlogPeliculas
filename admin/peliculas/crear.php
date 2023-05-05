@@ -37,8 +37,6 @@
 
         if(empty($errores)){
 
-            debuguear($_POST);
-
             //Crear la carpeta para subir imagenes
             $carpetaImagenes = '../../imagenes/';
 
