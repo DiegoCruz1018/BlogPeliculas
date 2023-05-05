@@ -5,6 +5,9 @@
 
     $categoria = new Categoria;
 
+    //Categoria para el menu
+    $categorias = Categoria::all();
+
     //Arreglo con mensajes de errores
     $errores = Categoria::getErrores();
 
@@ -17,14 +20,53 @@
 
         if(empty($errores)){ 
             //Guardar en la BD
-            $categoria->guardar();
+            $resultado = $categoria->crear();
+
+            if($resultado){
+                //Redireccionar al usuario
+                header('Location: /BlogPeliculas/admin/indexCategoria.php?resultado=1');
+            }
         }
     }
 
     incluirTemplate('header', $inicio = false);
 ?>  
 
-    <main class="container mt-5">
+    <header>
+        <nav class="navbar navbar-expand-lg bg-body-tertiary navbar-dark" data-bs-theme="dark" style="background-color: #090909;">
+            <div class="container-fluid">
+                <a class="navbar-brand p-enlace nav-margin" href="/BlogPeliculas/index.php">Blog Peliculas</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link p-enlace" aria-current="page" href="/BlogPeliculas/nosotros.php">Nosotros</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link p-enlace" href="/BlogPeliculas/contacto.php">Contacto</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link p-enlace" href="/BlogPeliculas/login.php">Iniciar Sesión</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle p-enlace" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Categorias
+                    </a>
+                    <ul class="dropdown-menu">
+                        <?php foreach($categorias as $cate): ?>
+                            <a class="dropdown-item p-enlace" href="/BlogPeliculas/categorias.php?id=<?php echo $cate->id; ?>"><?php echo $cate->nombre; ?></a>
+                        <?php endforeach; ?>
+                    </ul>
+                    </li>
+                </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main class="container mt-5 mb-5">
         <h1>Crear Categoria</h1>
 
         <div class="d-flex justify-content-start mb-4">
@@ -45,6 +87,17 @@
                 <input type="submit" value="Crear Categoria" class="crear">
             </div>
         </form>
+
+        <div>
+            <p>
+                El género cinematográfico es el tema general de una película que sirve para su clasificación. 
+                Así mismo supone un pacto implícito entre el público y el exhibidor, que garantiza el acomodo 
+                entre las expectativas psicológicas del espectador y la obra que va a visionar. El género es una 
+                guía para el comportamiento del público -reír (comedia), emocionarse o llorar (drama), asustarse 
+                (terror), sorprenderse (fantástico), entretenerse (aventuras), etcétera- o para el reconocimiento 
+                de temas, espacios, iconos, situaciones, objetos, acciones... que espera encontrar en las películas.
+            </p>
+        </div>
     </main>
 
 <?php 

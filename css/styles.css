@@ -306,7 +306,7 @@ table .imagen-tabla{
 /* FOOTER */
 .seccion-footer{
     background-color: var(--gris);
-    padding: 2rem 0;
+    padding-top: 2rem 0;
 }
 .iconos{
     margin-bottom: 40px;

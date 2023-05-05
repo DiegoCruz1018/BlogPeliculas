@@ -26,7 +26,11 @@
 
         if(empty($errores)){
             //Guardar en la BD
-            $contacto->guardar();
+            $resultado = $contacto->crear();
+
+            if($resultado){
+                header('Location: /BlogPeliculas/contacto.php?resultado=4');
+            }
         }
     }
 

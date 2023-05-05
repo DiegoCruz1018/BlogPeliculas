@@ -4,7 +4,7 @@
     class Contacto extends ActiveRecord{
         protected static $tabla = 'contacto';
         protected static $columnasDB = ['id', 'nombre', 'apellido', 'correo',
-        'telefono', 'mensaje', 'creado'];
+        'telefono', 'mensaje', 'enviado'];
 
         public $id;
         public $nombre;
@@ -12,7 +12,7 @@
         public $correo;
         public $telefono;
         public $mensaje;
-        public $creado;
+        public $enviado;
 
         public function __construct($args = [])
         {
@@ -22,7 +22,7 @@
             $this->correo = $args['correo'] ?? '';
             $this->telefono = $args['telefono'] ?? '';
             $this->mensaje = $args['mensaje'] ?? '';
-            $this->creado = date('Y-m-d');
+            $this->enviado = date('Y-m-d');
         }
 
         public function validar(){

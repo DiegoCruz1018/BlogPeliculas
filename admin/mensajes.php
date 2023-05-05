@@ -1,11 +1,11 @@
 <?php 
     require '../includes/app.php';
-    //estaAutenticado();
 
     use App\Categoria;
+    use App\Contacto;
 
-    //Implementar un método para obtener todas las peliculas
     $categorias = Categoria::all();
+    $mensajes = Contacto::all();
 
     //Muestra mensaje condicional
     $resultado = $_GET['resultado'] ?? null;
@@ -20,14 +20,14 @@
 
             if(validarTipoContenido($tipo)){
                 //Compara lo que vamos a eliminar
-                if($tipo === 'categoria'){
-                    $categoria = Categoria::find($id);
+                if($tipo === 'mensaje'){
+                    $mensaje = Contacto::find($id);
 
-                    $resultado = $categoria->eliminar();
+                    $resultado = $mensaje->eliminar();
 
                     if($resultado){
                         //Redireccionar al usuario
-                        header('Location: /BlogPeliculas/admin/indexCategoria.php?resultado=3');
+                        header('Location: /BlogPeliculas/admin/mensajes.php?resultado=3');
                     }
                 }
             }
@@ -36,7 +36,6 @@
 
     incluirTemplate('header', $inicio = false);
 ?>  
-
     <header>
         <nav class="navbar navbar-expand-lg bg-body-tertiary navbar-dark" data-bs-theme="dark" style="background-color: #090909;">
             <div class="container-fluid">
@@ -60,8 +59,8 @@
                         Categorias
                     </a>
                     <ul class="dropdown-menu">
-                        <?php foreach($categorias as $categoria): ?>
-                            <a class="dropdown-item p-enlace" href="/BlogPeliculas/categorias.php?id=<?php echo $categoria->id; ?>"><?php echo $categoria->nombre; ?></a>
+                        <?php foreach($categorias as $cate): ?>
+                            <a class="dropdown-item p-enlace" href="/BlogPeliculas/categorias.php?id=<?php echo $cate->id; ?>"><?php echo $cate->nombre; ?></a>
                         <?php endforeach; ?>
                     </ul>
                     </li>
@@ -71,8 +70,8 @@
         </nav>
     </header>
 
-    <main class="container mt-5">
-        <h1>Administrador de Categorias</h1>
+    <main class="container mt-5 mb-5">
+        <h1>Administrador de Mensajes</h1>
 
         <?php 
             $mensaje = mostrarNotificacion(intval($resultado));
@@ -82,7 +81,6 @@
         <?php endif; ?>
 
         <div class="d-flex mb-4">
-            <a class="nuevo justify-content-start" href="/BlogPeliculas/admin/categorias/crear.php">Nueva Categoria</a>
             <a href="" class="crear ms-3">Usuarios</a>
             <a href="/BlogPeliculas/admin/indexPelicula.php" class="crear ms-3">Peliculas</a>
             <a href="" class="crear ms-3">Comentarios</a>
@@ -96,22 +94,29 @@
                 <tr>
                     <th>ID</th>
                     <th>Nombre</th>
+                    <th>Correo</th>
+                    <th>telefono</th>
+                    <th>Mensaje</th>
+                    <th>Enviado</th>
                     <th>Acciones</th>
                 </tr>
             </thead>
 
             <tbody> <!-- Mostrar los resultados -->
-                <?php foreach($categorias as $categoria): ?>
+                <?php foreach($mensajes as $mensaje): ?>
                     <tr>
-                        <td> <?php echo $categoria->id; ?> </td>
-                        <td> <?php echo $categoria->nombre; ?> </td>
+                        <td> <?php echo $mensaje->id; ?> </td>
+                        <td> <?php echo $mensaje->nombre . " " . $mensaje->apellido; ?> </td>
+                        <td> <?php echo $mensaje->correo ?> </td>
+                        <td> <?php echo $mensaje->telefono ?> </td>
+                        <td> <?php echo $mensaje->mensaje ?> </td>
+                        <td> <?php echo $mensaje->enviado ?> </td>
                         <td>
                             <form method="POST" class="w-100">
-                                <input type="hidden" name="id" value="<?php echo $categoria->id; ?>">
-                                <input type="hidden" name="tipo" value="categoria">
+                                <input type="hidden" name="id" value="<?php echo $mensaje->id; ?>">
+                                <input type="hidden" name="tipo" value="mensaje">
                                 <input type="submit" class="borrar" value="Eliminar">
                             </form>
-                            <a href="/BlogPeliculas/admin/categorias/actualizar.php?id=<?php echo $categoria->id; ?>" class="actualizar">Actualizar</a>
                         </td>
                     </tr>
                 <?php endforeach; ?>

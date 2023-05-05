@@ -62,10 +62,7 @@
 
             $resultado = self::$db->query($query);
 
-            if($resultado){
-                //Redireccionar al usuario
-                header('Location: /BlogPeliculas/admin/indexPelicula.php?resultado=2');
-            }
+            return $resultado;
         }
 
         //Eliminar un registro
@@ -77,10 +74,9 @@
 
             if($resultado){
                 $this->borrarImagen();
-
-                //Redireccionar al usuario
-                header('Location: /BlogPeliculas/admin/indexPelicula.php?resultado=3');
             }
+
+            return $resultado;
         }
 
         //Identificar y unir los atributos de la BD
