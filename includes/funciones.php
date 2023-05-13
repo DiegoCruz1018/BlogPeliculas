@@ -57,3 +57,22 @@ function mostrarNotificacion($codigo){
 
     return $mensaje;
 }
+
+function iniciarSession() {
+    if(!isset($_SESSION)){
+        session_start();
+    }  
+}
+
+//Función que revisa que el usuario este autenticado
+// function isAuth() : void{
+//     if(!isset($_SESSION['login'])){
+//         header('Location: /BlogPeliculas/index.php');
+//     }
+// }
+
+function isAdmin() : void{
+    if(!isset($_SESSION['idRol'])){
+        header('location: /BlogPeliculas/index.php');
+    }
+}

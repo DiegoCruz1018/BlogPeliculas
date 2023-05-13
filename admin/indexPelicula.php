@@ -2,6 +2,13 @@
     require '../includes/app.php';
     //estaAutenticado();
 
+    iniciarSession();
+    isAdmin();
+
+    $nombre = $_SESSION['nombre'];
+
+    $auth = $_SESSION['login'] ?? false;
+
     //Importar Clase
     use App\Pelicula;
     use App\Categoria;
@@ -56,7 +63,11 @@
                         <a class="nav-link p-enlace" href="/BlogPeliculas/contacto.php">Contacto</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link p-enlace" href="/BlogPeliculas/login.php">Iniciar Sesión</a>
+                        <?php if($auth): ?>
+                            <a class="nav-link p-enlace" href="/BlogPeliculas/logout.php">Cerrar Sesión</a>
+                        <?php else: ?>
+                            <a class="nav-link p-enlace" href="/BlogPeliculas/login.php">Iniciar Sesión</a>
+                        <?php endif; ?>
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle p-enlace" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -76,6 +87,8 @@
 
     <main class="container mt-5">
         <h1>Administrador de Peliculas</h1>
+
+        <h2><?php echo "Hola " . $nombre; ?></h2>
 
         <?php 
             $mensaje = mostrarNotificacion(intval($resultado));

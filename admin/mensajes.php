@@ -4,6 +4,13 @@
     use App\Categoria;
     use App\Contacto;
 
+    iniciarSession();
+    isAdmin();
+
+    $nombre = $_SESSION['nombre'];
+
+    $auth = $_SESSION['login'] ?? false;
+
     $categorias = Categoria::all();
     $mensajes = Contacto::all();
 
@@ -52,7 +59,11 @@
                         <a class="nav-link p-enlace" href="/BlogPeliculas/contacto.php">Contacto</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link p-enlace" href="/BlogPeliculas/login.php">Iniciar Sesión</a>
+                        <?php if($auth): ?>
+                            <a class="nav-link p-enlace" href="/BlogPeliculas/logout.php">Cerrar Sesión</a>
+                        <?php else: ?>
+                            <a class="nav-link p-enlace" href="/BlogPeliculas/login.php">Iniciar Sesión</a>
+                        <?php endif; ?>
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle p-enlace" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -73,6 +84,8 @@
     <main class="container mt-5 mb-5">
         <h1>Administrador de Mensajes</h1>
 
+        <h2><?php echo "Hola " . $nombre; ?></h2>
+
         <?php 
             $mensaje = mostrarNotificacion(intval($resultado));
 
@@ -83,8 +96,8 @@
         <div class="d-flex mb-4">
             <a href="" class="crear ms-3">Usuarios</a>
             <a href="/BlogPeliculas/admin/indexPelicula.php" class="crear ms-3">Peliculas</a>
+            <a href="/BlogPeliculas/admin/indexCategoria.php" class="crear ms-3">Categorias</a>
             <a href="" class="crear ms-3">Comentarios</a>
-            <a href="/BlogPeliculas/admin/mensajes.php" class="crear ms-3">Ver Mensajes</a>
         </div>
 
         <h2>Categorias</h2>

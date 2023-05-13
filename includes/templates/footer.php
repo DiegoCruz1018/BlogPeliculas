@@ -1,5 +1,5 @@
         <footer class="seccion-footer">
-            <div class="container text-center">
+            <div class="container text-center p-4">
                 <div class="row">
                     <div class="mt-sm-4 col-sm-6 mt-md-1 mb-md-1 col-md-3 iconos">
                         <i class="fa-brands fa-facebook-f fa-beat fa-2xl" style="color: #000000;"></i>

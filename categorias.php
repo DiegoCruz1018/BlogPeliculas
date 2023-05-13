@@ -54,23 +54,20 @@
     <main class="container mt-5">
         <h1><?php echo $categoria->nombre; ?></h1>
 
-        <?php foreach($peliculas as $pelicula): ?>
-            <div class="row">
+        <div class="row">
+            <?php foreach($peliculas as $pelicula): ?>
                 <div class="col-lg-4 mb-2">
-                        <a href="pelicula.php?id=<?php echo $pelicula->id; ?>">
-                            <img loading="lazy" class="img-fluid" src="/BlogPeliculas/imagenes/<?php echo $pelicula->imagen ?>" alt="Imagen Pelicula">
+                    <a href="pelicula.php?id=<?php echo $pelicula->id; ?>">
+                        <img loading="lazy" class="img-fluid" src="/BlogPeliculas/imagenes/<?php echo $pelicula->imagen ?>" alt="Imagen Pelicula">
 
-                            <div class="contenido-pelicula bg-primary">
-                                <h3 class="mb-1 mt-2 text-light nombre-pagina"><?php echo $pelicula->titulo; ?></h3>
-                                <p class="text-light"><?php echo $pelicula->estreno; ?></p>
-                            </div>
-                        </a>
-                    </div>
-
+                        <div class="contenido-pelicula bg-primary">
+                            <h3 class="mb-1 mt-2 text-light nombre-pagina"><?php echo $pelicula->titulo; ?></h3>
+                            <p class="text-light"><?php echo $pelicula->estreno; ?></p>
+                        </div>
+                    </a>
                 </div>
-            
-            </div>
-        <?php endforeach; ?>
+            <?php endforeach; ?>
+        </div>
     </main>
 
 <?php 

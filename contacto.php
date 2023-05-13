@@ -3,6 +3,7 @@
 
     use App\Categoria;
     use App\Contacto;
+    use PHPMailer\PHPMailer\PHPMailer;
 
     //Instancia para contacto
     $contacto = new Contacto;
@@ -20,6 +21,46 @@
         
         //Crear una nueva instancia
         $contacto = new Contacto($_POST['contacto']);
+
+        //Crear una nueva instancia de PHPMailer
+        // $mail = new PHPMailer();
+
+        // //Configurar SMTP
+        // $mail->isSMTP();
+        // $mail->Host = 'sandbox.smtp.mailtrap.io';
+        // $mail->SMTPAuth = true;
+        // $mail->Username = '5b8f1f839b139a';
+        // $mail->Password = 'b48fe8e7b1757b';
+        // $mail->SMTPSecure = 'tls';
+        // $mail->Port = 2525;
+
+        //Configurar el contenido del mail
+        // $mail->setFrom('admin@blogpeliculas.com');
+        // $mail->addAddress('admin@blogpeliculas.com', 'BlogPeliculas.com');
+        // $mail->Subject = 'Tienes un Nuevo Mensaje';
+
+        //Habilitar HTML
+        // $mail->isHTML(true);
+        // $mail->CharSet = 'UTF-8';
+
+        //Definir el contenido
+        // $contenido = '<html>';
+        // $contenido .= '<p>Tienes un nuevo mensaje</p>'; 
+        // $contenido .= '<p>Nombre: ' . $respuestas['nombre'] . $respuestas['apellido'] .'</p>'; 
+        // $contenido .= '<p>Nombre: ' . $respuestas['correo'] .'</p>'; 
+        // $contenido .= '<p>Nombre: ' . $respuestas['telefono'] .'</p>'; 
+        // $contenido .= '<p>Nombre: ' . $respuestas['mensaje'] .'</p>'; 
+        // $contacto .= '</html>';
+
+        // $mail->Body = $contenido;
+        // $mail->AltBody = 'Texto alternativo sin HTML';
+
+        // //Enviar el email
+        // if($mail->send()){
+        //     echo "Mensaje enviado correctamente";
+        // }else{
+        //     echo "El mensaje no se pudo enviar";
+        // }
 
         //Validar
         $errores = $contacto->validar();

@@ -116,6 +116,9 @@ p {
 .campo label{
     flex: 0 0 10rem;
 }
+label{
+    margin-right: 0.5rem;
+}
 .campo input{
     flex: 1;
     border: none;

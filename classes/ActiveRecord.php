@@ -13,6 +13,7 @@
 
         //Errores
         protected static $errores = [];
+        protected static $alertas = [];
 
         //Definir la conexión a la BD
         public static function setDB($database){
@@ -125,9 +126,27 @@
             }
         }
 
+        public static function setAlerta($mensaje) {
+            static::$alertas[] = $mensaje;
+        }
+    
+        // Validación
+        public static function getAlertas() {
+            return static::$alertas;
+        }
+
+        public static function setError($mensaje) {
+            static::$errores[] = $mensaje;
+        }
+
         //Validación
         public static function getErrores(){
             return static::$errores;
+        }
+
+        public function validarAlertas() {
+            static::$alertas = [];
+            return static::$alertas;
         }
 
         public function validar(){
@@ -148,6 +167,16 @@
         //Buscar un registro por su id
         public static function find($id){
             $query = "SELECT * FROM " . static::$tabla . " WHERE id = $id";
+
+            $resultado = self::consultarSQL($query);
+
+            //Nos retorna el primer elemento de un arreglo
+            return array_shift($resultado);
+        }
+
+        //Buscar un registro por su id
+        public static function where($columna, $valor){
+            $query = "SELECT * FROM " . static::$tabla . " WHERE $columna = '$valor'";
 
             $resultado = self::consultarSQL($query);
 

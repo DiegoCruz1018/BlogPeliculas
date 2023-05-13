@@ -57,7 +57,7 @@
 
         <div class="row">
             <div class="col-md-6">
-                <img src="/BlogPeliculas/imagenes/<?php echo $pelicula->imagen; ?>" alt="Imagen Pelicula">
+                <img class="h-100" src="/BlogPeliculas/imagenes/<?php echo $pelicula->imagen; ?>" alt="Imagen Pelicula">
             </div>
             <div class="col-md-6 mt-5">
                 <h2 class="nombre-pagina text-primary">Director: 

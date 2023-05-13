@@ -273,6 +273,15 @@ textarea{
     text-transform: uppercase;
     margin: 1rem 0;
 }
+.exitoso{
+    background-color: var(--verde);
+    padding: .5rem;
+    text-align: center;
+    color: var(--blanco);
+    font-weight: bold;
+    text-transform: uppercase;
+    margin: 1rem 0;
+}
 
 /** Peliculas **/
 .contenido-pelicula{

@@ -8,6 +8,11 @@
     //Categoria para el menu
     $categorias = Categoria::all();
 
+    iniciarSession();
+    isAdmin();
+
+    $auth = $_SESSION['login'] ?? false;
+
     //Validar la URL por ID válido
     $id = $_GET['id'];
     $id = filter_var($id, FILTER_VALIDATE_INT);
@@ -61,7 +66,11 @@
                         <a class="nav-link p-enlace" href="/BlogPeliculas/contacto.php">Contacto</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link p-enlace" href="/BlogPeliculas/login.php">Iniciar Sesión</a>
+                        <?php if($auth): ?>
+                            <a class="nav-link p-enlace" href="/BlogPeliculas/logout.php">Cerrar Sesión</a>
+                        <?php else: ?>
+                            <a class="nav-link p-enlace" href="/BlogPeliculas/login.php">Iniciar Sesión</a>
+                        <?php endif; ?>
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle p-enlace" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
