@@ -1,6 +1,10 @@
 <?php 
     require 'includes/app.php';
 
+    iniciarSession();
+
+    $auth = $_SESSION['login'] ?? false;
+
     use App\Categoria;
     use App\Pelicula;
     
@@ -18,7 +22,7 @@
     incluirTemplate('header', $inicio = false);
 ?>  
     <header>
-        <nav class="navbar navbar-expand-lg bg-body-tertiary navbar-dark" data-bs-theme="dark" style="background-color: #090909;">
+        <nav class="navbar navbar-expand-lg navbar-dark" data-bs-theme="dark" style="background-color: #cb0000;"">
             <div class="container-fluid">
                 <a class="navbar-brand p-enlace nav-margin" href="/BlogPeliculas/index.php">Blog Peliculas</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
@@ -33,7 +37,11 @@
                         <a class="nav-link p-enlace" href="/BlogPeliculas/contacto.php">Contacto</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link p-enlace" href="/BlogPeliculas/login.php">Iniciar Sesión</a>
+                        <?php if($auth): ?>
+                            <a class="nav-link p-enlace" href="/BlogPeliculas/logout.php">Cerrar Sesión</a>
+                        <?php else: ?>
+                            <a class="nav-link p-enlace" href="/BlogPeliculas/login.php">Iniciar Sesión</a>
+                        <?php endif; ?>
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle p-enlace" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">

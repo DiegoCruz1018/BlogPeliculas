@@ -184,6 +184,15 @@
             return array_shift($resultado);
         }
 
+        //Consulta Plana de SQL (Utilizar cuando los metodos del modelo no son suficientes)
+        public static function SQL($query){
+
+            $resultado = self::consultarSQL($query);
+
+            //Nos retorna el primer elemento de un arreglo
+            return $resultado;
+        }
+
         public static function consultarSQL($query){
             //Consultar la BD
             $resultado = self::$db->query($query);

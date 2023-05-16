@@ -45,7 +45,7 @@
 ?>  
 
     <header>
-        <nav class="navbar navbar-expand-lg bg-body-tertiary navbar-dark" data-bs-theme="dark" style="background-color: #090909;">
+        <nav class="navbar navbar-expand-lg navbar-dark" data-bs-theme="dark" style="background-color: #cb0000;">
             <div class="container-fluid">
                 <a class="navbar-brand p-enlace nav-margin" href="/BlogPeliculas/index.php">Blog Peliculas</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
@@ -98,7 +98,7 @@
             <a class="nuevo justify-content-start" href="/BlogPeliculas/admin/categorias/crear.php">Nueva Categoria</a>
             <a href="" class="crear ms-3">Usuarios</a>
             <a href="/BlogPeliculas/admin/indexPelicula.php" class="crear ms-3">Peliculas</a>
-            <a href="" class="crear ms-3">Comentarios</a>
+            <a href="/BlogPeliculas/admin/indexComentario.php" class="crear ms-3">Comentarios</a>
             <a href="/BlogPeliculas/admin/mensajes.php" class="crear ms-3">Ver Mensajes</a>
         </div>
 

@@ -79,7 +79,7 @@
 ?>  
 
     <header>
-        <nav class="navbar navbar-expand-lg bg-body-tertiary navbar-dark" data-bs-theme="dark" style="background-color: #090909;">
+        <nav class="navbar navbar-expand-lg navbar-dark" data-bs-theme="dark" style="background-color: #cb0000;">
             <div class="container-fluid">
                 <a class="navbar-brand p-enlace nav-margin" href="/BlogPeliculas/index.php">Blog Peliculas</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
@@ -152,7 +152,7 @@
             </fieldset>
 
             <div class="d-flex justify-content-end mb-4">
-                <input type="submit" value="Enviar" class="boton">
+                <input type="submit" value="Enviar" class="crear">
             </div>
         </form>
     </main>

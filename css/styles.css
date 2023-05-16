@@ -312,6 +312,16 @@ table .imagen-tabla{
     display: flex;
 }
 
+/* COMENTARIOS */
+.comentarios p{
+    display: block;
+    width: 100%;
+    background-color: var(--blanco);
+    border: 1px solid var(--gris);
+    border-radius: 1rem;
+    margin-bottom: 2rem;
+}
+
 /* FOOTER */
 .seccion-footer{
     background-color: var(--gris);

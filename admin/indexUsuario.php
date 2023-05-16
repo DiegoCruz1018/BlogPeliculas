@@ -10,11 +10,12 @@
     $auth = $_SESSION['login'] ?? false;
 
     //Importar Clase
-    use App\Pelicula;
+    use App\Usuario;
     use App\Categoria;
+    use App\Rol;
 
-    //Implementar un método para obtener todas las peliculas
-    $peliculas = Pelicula::all();
+    //Implementar un método para obtener todas los usuarios
+    $usuarios = Usuario::all();
 
     //Categorias para el menu
     $categorias = Categoria::all();
@@ -32,13 +33,13 @@
             $tipo = $_POST['tipo'];
 
             if(validarTipoContenido($tipo)){
-                $pelicula = Pelicula::find($id);
+                $usuario = Usuario::find($id);
 
-                $resultado = $pelicula->eliminar(); 
+                $resultado = $usuario->eliminar(); 
 
                 if($resultado){
                     //Redireccionar al usuario
-                header('Location: /BlogPeliculas/admin/indexPelicula.php?resultado=3');
+                    header('Location: /BlogPeliculas/admin/indexUsuario.php?resultado=3');
                 }
             }
         }
@@ -86,7 +87,7 @@
     </header>
 
     <main class="container mt-5">
-        <h1>Administrador de Peliculas</h1>
+        <h1>Administrador de Usuarios</h1>
 
         <h2><?php echo "Hola " . $nombre; ?></h2>
 
@@ -98,46 +99,46 @@
         <?php endif; ?>
 
         <div class="d-flex mb-4">
-            <a class="nuevo justify-content-start" href="/BlogPeliculas/admin/peliculas/crear.php">Nueva Pelicula</a>
-            <a href="/BlogPeliculas/admin/indexUsuario.php" class="crear ms-3">Usuarios</a>
+            <a class="nuevo justify-content-start" href="/BlogPeliculas/admin/usuarios/crear.php">Nuevo Usuario</a>
+            <a href="/BlogPeliculas/admin/indexPelicula.php" class="crear ms-3">Peliculas</a>
             <a href="/BlogPeliculas/admin/indexCategoria.php" class="crear ms-3">Categorias</a>
             <a href="/BlogPeliculas/admin/indexComentario.php" class="crear ms-3">Comentarios</a>
             <a href="/BlogPeliculas/admin/mensajes.php" class="crear ms-3">Ver Mensajes</a>
         </div>
 
-        <h2>Peliculas</h2>
+        <h2>Usuarios</h2>
 
         <table class="peliculas">
             <thead>
                 <tr>
                     <th>ID</th>
-                    <th>Titulo</th>
-                    <th>Imagen</th>
-                    <th>Director</th>
-                    <th>Protagonista</th>
-                    <th>Estreno</th>
+                    <th>Nombre</th>
+                    <th>Correo</th>
+                    <th>Teléfono</th>
+                    <th>Rol</th>
                     <th>Acciones</th>
                 </tr>
             </thead>
 
             <tbody> <!-- Mostrar los resultados -->
-                <?php foreach($peliculas as $pelicula): ?>
+                <?php foreach($usuarios as $usuario): ?>
                     <tr>
-                        <td> <?php echo $pelicula->id; ?> </td>
-                        <td> <?php echo $pelicula->titulo; ?> </td>
-                        <td>
-                            <img src="../imagenes/<?php echo $pelicula->imagen; ?>" class="imagen-tabla">
-                        </td>
-                        <td> <?php echo $pelicula->director; ?> </td>
-                        <td> <?php echo $pelicula->protagonista; ?> </td>
-                        <td> <?php echo $pelicula->estreno; ?> </td>
+                        <td> <?php echo $usuario->id; ?> </td>
+                        <td> <?php echo $usuario->nombre . "" . $usuario->apellido; ?> </td>
+                        <td> <?php echo $usuario->correo; ?> </td>
+                        <td> <?php echo $usuario->telefono; ?> </td>
+                        <td> <?php if($usuario->idRol === '1'){
+                            echo 'Administrador';
+                        }elseif($usuario->idRol === '2'){
+                            echo 'Usuario';
+                        } ?> </td>
                         <td>
                             <form method="POST" class="w-100">
-                                <input type="hidden" name="id" value="<?php echo $pelicula->id; ?>">
-                                <input type="hidden" name="tipo" value="pelicula">
+                                <input type="hidden" name="id" value="<?php echo $usuario->id; ?>">
+                                <input type="hidden" name="tipo" value="usuario">
                                 <input type="submit" class="borrar" value="Eliminar">
                             </form>
-                            <a href="/BlogPeliculas/admin/peliculas/actualizar.php?id=<?php echo $pelicula->id; ?>" class="actualizar">Actualizar</a>
+                            <a href="/BlogPeliculas/admin/usuarios/actualizar.php?id=<?php echo $usuario->id; ?>" class="actualizar">Actualizar</a>
                         </td>
                     </tr>
                 <?php endforeach; ?>

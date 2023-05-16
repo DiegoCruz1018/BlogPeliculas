@@ -33,7 +33,7 @@ function s($html) : string{
 
 //Validar tipo de contenido
 function validarTipoContenido($tipo){
-    $tipos = ['categoria', 'pelicula', 'mensaje'];
+    $tipos = ['categoria', 'pelicula', 'mensaje', 'usuario', 'comentario'];
 
     return in_array($tipo, $tipos);
 }

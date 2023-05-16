@@ -1,78 +1,50 @@
-<?php
+<?php 
     require '../../includes/app.php';
 
-    use App\Pelicula;
+    use App\Usuario;
     use App\Categoria;
-    use Intervention\Image\ImageManagerStatic as Image;
+    use App\Rol;
 
     //estaAutenticado();
+
     iniciarSession();
     isAdmin();
 
     $auth = $_SESSION['login'] ?? false;
 
+    $usuario = new Usuario;
+
     //Consulta para obtener las categorias
     $categorias = Categoria::all();
 
-    //Validar la URL por ID válido
-    $id = $_GET['id'];
-    $id = filter_var($id, FILTER_VALIDATE_INT);
+    //Consulta para obtener los roles
+    $roles = Rol::all();
 
-    if(!$id){
-        header('Location: /BlogPeliculas/admin/indexPeliculas.php');
-    }
+    //arreglo con mensajes de errores
+    $errores = Usuario::getErrores();
 
-    //Obtener los datos de la pelicula
-    $pelicula = Pelicula::find($id);
-
-    //Consulta para obtener las categorias
-    $consulta = "SELECT * FROM categorias";
-    $resultado = mysqli_query($db, $consulta);
-
-    //Arreglo con errores
-    $errores = Pelicula::getErrores();
-
-    //Ejecutar el código después de que el usuario envia el formulario
     if($_SERVER['REQUEST_METHOD'] === 'POST'){
-        
-        //Asignar los atributos
-        $args = $_POST['pelicula'];
 
-        $pelicula->sincronizar($args);
+        // Crea una nueva instancia
+        $pelicula = new Usuario($_POST['usuario']);
 
-        //Validación 
-        $errores = $pelicula->validar();
-
-        /* SUBIDA DE ARCHIVOS */
-
-        //Genera un nombre único
-        $nombreImagen = md5(uniqid(rand(), true)) . ".jpg";
-
-        //Setear la imagen
-        //Realiza un resize a la imagen con intervention
-        if($_FILES['pelicula']['tmp_name']['imagen']){
-            $image = Image::make($_FILES['pelicula']['tmp_name']['imagen'])->fit(800, 600);
-            $pelicula->setImagen($nombreImagen);
-        }
+        //Validar
+        $errores = $usuario->validarNuevaCuenta();
 
         if(empty($errores)){
-            //Almacenar la imagen
-            if($_FILES['pelicula']['tmp_name']['imagen']){
-                $image->save(CARPETA_IMAGENES . $nombreImagen);
-            }
 
-            $resultado = $pelicula->actualizar();
+            //Guarda en la BD
+            $resultado = $usuario->crear();
 
             if($resultado){
                 //Redireccionar al usuario
-                header('Location: /BlogPeliculas/admin/indexPelicula.php?resultado=2');
+                header('Location: /BlogPeliculas/admin/indexUsuario.php?resultado=1');
             }
         }
     }
 
     incluirTemplate('header', $inicio = false);
 ?>  
-
     <header>
         <nav class="navbar navbar-expand-lg navbar-dark" data-bs-theme="dark" style="background-color: #cb0000;">
             <div class="container-fluid">
@@ -112,10 +84,10 @@
     </header>
 
     <main class="container mt-5">
-        <h1>Actualizar Pelicula</h1>
+        <h1>Crear Usuario</h1>
 
         <div class="d-flex justify-content-start mb-4">
-            <a class="boton" href="/BlogPeliculas/admin/indexPelicula.php">Volver</a>
+            <a class="boton" href="/BlogPeliculas/admin/indexUsuario.php">Volver</a>
         </div>
 
         <?php foreach($errores as $error): ?>
@@ -125,11 +97,11 @@
         <?php endforeach; ?>
 
         <form class="formulario" method="POST" enctype="multipart/form-data">
-
-            <?php include '../../includes/templates/formulario_peliculas.php'; ?>
+            
+            <?php include '../../includes/templates/formulario_usuarios.php'; ?>
 
             <div class="d-flex justify-content-end mb-4">
-                <input type="submit" value="Actualizar Pelicula" class="crear">
+                <input type="submit" value="Crear Usuario" class="crear">
             </div>
         </form>
     </main>

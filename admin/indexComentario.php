@@ -10,11 +10,28 @@
     $auth = $_SESSION['login'] ?? false;
 
     //Importar Clase
-    use App\Pelicula;
-    use App\Categoria;
 
-    //Implementar un método para obtener todas las peliculas
-    $peliculas = Pelicula::all();
+    use App\AdminComentario;
+    use App\Usuario;
+    use App\Categoria;
+    use App\Comentario;
+    use App\Pelicula;
+
+    //Implementar un método para obtener todas los comentarios
+    // $comentarios = Comentario::all();
+
+    //Consultar la base de datos
+    $consulta = "SELECT c.id AS id, CONCAT(u.nombre, ' ', u.apellido) AS usuario, c.comentario AS comentario, p.titulo AS pelicula
+    FROM comentarios c INNER JOIN usuarios u ON c.idUsuario = u.id INNER JOIN peliculas p ON c.idPelicula = p.id
+    ORDER BY c.id ASC";
+
+    $comentarios = AdminComentario::SQL($consulta);
+
+    //Traer todos los usuarios
+    $usuario = new Usuario;
+
+    //Traer todas las peliculas
+    $pelicula = new Pelicula;
 
     //Categorias para el menu
     $categorias = Categoria::all();
@@ -32,13 +49,13 @@
             $tipo = $_POST['tipo'];
 
             if(validarTipoContenido($tipo)){
-                $pelicula = Pelicula::find($id);
+                $comentario = Comentario::find($id);
 
-                $resultado = $pelicula->eliminar(); 
+                $resultado = $comentario->eliminar(); 
 
                 if($resultado){
                     //Redireccionar al usuario
-                header('Location: /BlogPeliculas/admin/indexPelicula.php?resultado=3');
+                    header('Location: /BlogPeliculas/admin/indexComentario.php?resultado=3');
                 }
             }
         }
@@ -86,7 +103,7 @@
     </header>
 
     <main class="container mt-5">
-        <h1>Administrador de Peliculas</h1>
+        <h1>Administrador de Comentarios</h1>
 
         <h2><?php echo "Hola " . $nombre; ?></h2>
 
@@ -98,46 +115,40 @@
         <?php endif; ?>
 
         <div class="d-flex mb-4">
-            <a class="nuevo justify-content-start" href="/BlogPeliculas/admin/peliculas/crear.php">Nueva Pelicula</a>
-            <a href="/BlogPeliculas/admin/indexUsuario.php" class="crear ms-3">Usuarios</a>
+            <!-- <a class="nuevo justify-content-start" href="/BlogPeliculas/admin/usuarios/crear.php">Nuevo Usuario</a> -->
+            <a href="/BlogPeliculas/admin/indexPelicula.php" class="crear ms-3">Peliculas</a>
             <a href="/BlogPeliculas/admin/indexCategoria.php" class="crear ms-3">Categorias</a>
-            <a href="/BlogPeliculas/admin/indexComentario.php" class="crear ms-3">Comentarios</a>
+            <a href="/BlogPeliculas/admin/indexUsuario.php" class="crear ms-3">Usuarios</a>
             <a href="/BlogPeliculas/admin/mensajes.php" class="crear ms-3">Ver Mensajes</a>
         </div>
 
-        <h2>Peliculas</h2>
+        <h2>Comentarios</h2>
 
         <table class="peliculas">
             <thead>
                 <tr>
                     <th>ID</th>
-                    <th>Titulo</th>
-                    <th>Imagen</th>
-                    <th>Director</th>
-                    <th>Protagonista</th>
-                    <th>Estreno</th>
+                    <th>Usuario</th>
+                    <th>Comentario</th>
+                    <th>Pelicula</th>
                     <th>Acciones</th>
                 </tr>
             </thead>
 
             <tbody> <!-- Mostrar los resultados -->
-                <?php foreach($peliculas as $pelicula): ?>
+                <?php foreach($comentarios as $comentario): ?>
                     <tr>
-                        <td> <?php echo $pelicula->id; ?> </td>
-                        <td> <?php echo $pelicula->titulo; ?> </td>
-                        <td>
-                            <img src="../imagenes/<?php echo $pelicula->imagen; ?>" class="imagen-tabla">
-                        </td>
-                        <td> <?php echo $pelicula->director; ?> </td>
-                        <td> <?php echo $pelicula->protagonista; ?> </td>
-                        <td> <?php echo $pelicula->estreno; ?> </td>
+                        <td> <?php echo $comentario->id; ?> </td>
+                        <td> <?php echo $comentario->usuario ?> </td>
+                        <td class="w-50"> <?php echo $comentario->comentario; ?> </td>
+                        <td> <?php echo $comentario->pelicula; ?> </td>
                         <td>
                             <form method="POST" class="w-100">
-                                <input type="hidden" name="id" value="<?php echo $pelicula->id; ?>">
-                                <input type="hidden" name="tipo" value="pelicula">
+                                <input type="hidden" name="id" value="<?php echo $comentario->id; ?>">
+                                <input type="hidden" name="tipo" value="comentario">
                                 <input type="submit" class="borrar" value="Eliminar">
                             </form>
-                            <a href="/BlogPeliculas/admin/peliculas/actualizar.php?id=<?php echo $pelicula->id; ?>" class="actualizar">Actualizar</a>
+                            <a href="/BlogPeliculas/admin/usuarios/actualizar.php?id=<?php echo $comentario->id; ?>" class="actualizar">Actualizar</a>
                         </td>
                     </tr>
                 <?php endforeach; ?>
