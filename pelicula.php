@@ -36,7 +36,7 @@
         $comentario = new Comentario($_POST['comentario']);
 
         //Guardar en la BD
-        $comentario->comentarPelicula($idUsuario, $id);
+        $resultado = $comentario->comentarPelicula($idUsuario, $id);
 
         //Validar ID
         // $id = $_POST['id'];
@@ -59,7 +59,7 @@
     <header>
         <nav class="navbar navbar-expand-lg navbar-dark" data-bs-theme="dark" style="background-color: #cb0000;">
             <div class="container-fluid">
-                <a class="navbar-brand p-enlace nav-margin" href="/BlogPeliculas/index.php">Blog Peliculas</a>
+                <a class="navbar-brand p-enlace nav-margin" href="/BlogPeliculas/index.php">Movie Magic</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
                 </button>
@@ -98,15 +98,15 @@
         <h1><?php echo $pelicula->titulo; ?></h1>
 
         <div class="row">
-            <div class="col-md-6">
+            <div class="col-lg-6">
                 <img class="h-100" src="/BlogPeliculas/imagenes/<?php echo $pelicula->imagen; ?>" alt="Imagen Pelicula">
             </div>
-            <div class="col-md-6 mt-5">
+            <div class="col-lg-6 mt-5">
                 <h2 class="nombre-pagina text-primary">Director: 
                     <span class="text-light"><?php echo $pelicula->director; ?></span>
                 </h2>
                 <h2 class="nombre-pagina text-primary">Protagonista: <span class="text-light"><?php echo $pelicula->protagonista; ?></span></h2>
-                <h2 class="nombre-pagina text-primary">Sipnosis: </h2>
+                <h2 class="nombre-pagina text-primary">Sinopsis: </h2>
                 <p class="text-primary">
                     <span class="text-light"><?php echo $pelicula->sipnosis; ?></span>
                 </p>
@@ -117,8 +117,8 @@
 
         <div class="comentarios btn position-relative pe-none">
             <?php foreach($comentariosView as $comentarioView): ?>
-                <h4 class="d-flex flex-start ms-5 text-light"><?php echo $comentarioView->nombreUsuario; ?></h4>
-                <p class="d-flex flex-start ms-5 mb-1 p-3 bg-light bg-gradient text-dark border border-succes rounded">
+                <h4 class="d-flex flex-start text-light"><?php echo $comentarioView->nombreUsuario; ?></h4>
+                <p class="d-flex flex-start mb-1 p-3 bg-light bg-gradient text-dark border border-succes rounded">
                     <?php echo $comentarioView->comentario; ?>
                 </p>
                 <!-- <div class="d-flex justify-content-end">
@@ -134,6 +134,11 @@
 
         <?php if($auth): ?>
             <h3 class="mt-5 text-secondary">Escribe un comentario sobre la pelicula:</h3>
+
+            <?php 
+                if($resultado){ ?>
+                    <p class="exito" >Comentario enviado con exito</p>
+            <?php } ?>
 
             <div>
                 <form class="formulario" method="POST">

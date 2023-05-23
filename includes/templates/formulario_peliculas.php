@@ -21,7 +21,7 @@
     <label for="estreno">Año de Estreno:</label>
     <input type="text" name="pelicula[estreno]" placeholder="Año de Estreno de la Pelicula" id="estreno" value="<?php echo s($pelicula->estreno); ?>">
 
-    <label for="sipnosis">Sipnosis:</label>
+    <label for="sipnosis">Sinopsis:</label>
     <textarea id="sipnosis" name="pelicula[sipnosis]"><?php echo s($pelicula->sipnosis); ?></textarea>
 
 </fieldset>
