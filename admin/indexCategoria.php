@@ -96,7 +96,7 @@
 
         <div class="d-flex mb-4">
             <a class="nuevo justify-content-start" href="/BlogPeliculas/admin/categorias/crear.php">Nueva Categoria</a>
-            <a href="" class="crear ms-3">Usuarios</a>
+            <a href="/BlogPeliculas/admin/indexUsuario.php" class="crear ms-3">Usuarios</a>
             <a href="/BlogPeliculas/admin/indexPelicula.php" class="crear ms-3">Peliculas</a>
             <a href="/BlogPeliculas/admin/indexComentario.php" class="crear ms-3">Comentarios</a>
             <a href="/BlogPeliculas/admin/mensajes.php" class="crear ms-3">Ver Mensajes</a>

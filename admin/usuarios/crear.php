@@ -26,19 +26,30 @@
     if($_SERVER['REQUEST_METHOD'] === 'POST'){
 
         // Crea una nueva instancia
-        $pelicula = new Usuario($_POST['usuario']);
+        $usuario = new Usuario($_POST['usuario']);
 
         //Validar
         $errores = $usuario->validarNuevaCuenta();
 
         if(empty($errores)){
 
-            //Guarda en la BD
-            $resultado = $usuario->crear();
+            //Verificar que el usuario no este registrado
+            $resultado = $usuario->existeUsuario();
 
-            if($resultado){
-                //Redireccionar al usuario
-                header('Location: /BlogPeliculas/admin/indexUsuario.php?resultado=1');
+            if($resultado->num_rows){
+                $errores = Usuario::getErrores();
+            }else{
+                //Hashear el password
+                $usuario->hashPassword();
+
+                //Guarda en la BD
+                $resultado = $usuario->crear();
+
+                if($resultado){
+                    //Redireccionar al usuario
+                    header('Location: /BlogPeliculas/admin/indexUsuario.php?resultado=1');
+                }
+
             }
         }
     }
@@ -99,6 +110,16 @@
         <form class="formulario" method="POST" enctype="multipart/form-data">
             
             <?php include '../../includes/templates/formulario_usuarios.php'; ?>
+
+            <fieldset>
+                <legend>Confirmar cuenta</legend>
+
+                <label for="confirmado" >Confirmado</label>
+                <select name="usuario[confirmado]" id="confirmado">
+                    <option selected>-- Seleccione --</option>
+                    <option <?php echo $usuario->confirmado; ?> value="1" > Confirmado </option>
+                </select>
+            </fieldset>
 
             <div class="d-flex justify-content-end mb-4">
                 <input type="submit" value="Crear Usuario" class="crear">

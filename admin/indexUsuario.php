@@ -12,7 +12,6 @@
     //Importar Clase
     use App\Usuario;
     use App\Categoria;
-    use App\Rol;
 
     //Implementar un método para obtener todas los usuarios
     $usuarios = Usuario::all();
@@ -124,7 +123,7 @@
                 <?php foreach($usuarios as $usuario): ?>
                     <tr>
                         <td> <?php echo $usuario->id; ?> </td>
-                        <td> <?php echo $usuario->nombre . "" . $usuario->apellido; ?> </td>
+                        <td> <?php echo $usuario->nombre . " " . $usuario->apellido; ?> </td>
                         <td> <?php echo $usuario->correo; ?> </td>
                         <td> <?php echo $usuario->telefono; ?> </td>
                         <td> <?php if($usuario->idRol === '1'){
