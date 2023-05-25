@@ -44,6 +44,9 @@
 
         if(empty($errores)){
 
+            //Hashear el password
+            $usuario->hashPassword();
+
             $resultado = $usuario->actualizar();
 
             if($resultado){
