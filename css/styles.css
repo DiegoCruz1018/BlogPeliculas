@@ -4,9 +4,11 @@
     --azul: #0da6f3;
     --rojo: #cb0000;
     --verde:#329f00;
-    --negro: #090909;
+    --negro: #171616;
     --blanco: #FFFFFF;
     --gris: #e1e1e1;
+
+    --negroOscuro: #090909;
     
     
     --delgada: 300;
@@ -107,6 +109,12 @@ img {
         margin-left: 5rem;
         margin-right: 60rem;
     }
+}
+.p-enlace:hover{
+    color: var(--azul);
+}
+.h1-usuario{
+    color: var(--azul);
 }
 
 /* Formulario */
