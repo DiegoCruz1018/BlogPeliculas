@@ -1,10 +1,10 @@
 :root{
     --fuente_principal: 'Poppins', sans-serif;
     
-    --azul: #0da6f3;
+    --azul: #0a7bb4;
     --rojo: #cb0000;
     --verde:#329f00;
-    --negro: #171616;
+    --negro: #100f0f;
     --blanco: #FFFFFF;
     --gris: #e1e1e1;
 
@@ -115,6 +115,40 @@ img {
 }
 .h1-usuario{
     color: var(--azul);
+}
+
+.barra{
+    background-color: var(--gris);
+    padding: 0 0 2rem 0;
+    margin-bottom: 0;
+
+    background-image: url(/BlogPeliculas/img/index.jpg);
+    background-position: center center;
+    background-size: cover;
+}
+@media (min-width: 768px) {
+    .barra{
+        min-height: 50rem;
+    }
+}
+
+.imagen-contacto{
+    background-image: url(/BlogPeliculas/img/barra.webp);
+    background-position: center center;
+    background-size: cover;
+    padding: calc(var(--separacion) * 2) 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #9c979d;
+}
+
+.imagen-contacto h2{
+    font-size: 4rem;
+}
+.imagen-contacto p{
+    font-size: 1.8rem;
+    font-weight: var(--bold);
 }
 
 /* Formulario */

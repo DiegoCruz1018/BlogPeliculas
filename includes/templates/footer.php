@@ -19,5 +19,6 @@
 
         <script src="/BlogPeliculas/js/bootstrap.bundle.min.js"></script>
         <script src="/BlogPeliculas/js/fontawesome.js"></script>
+        <script src="/BlogPeliculas/js/app.js"></script>
     </body>
 </html>

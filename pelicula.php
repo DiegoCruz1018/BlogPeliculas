@@ -119,10 +119,10 @@
         <?php if($auth): ?>
             <h3 class="mt-5 text-secondary">Escribe un comentario sobre la pelicula:</h3>
 
-            <?php 
+            <!-- <?php 
                 if($resultado){ ?>
                     <p class="exito" >Comentario enviado con exito</p>
-            <?php } ?>
+            <?php } ?> -->
 
             <div>
                 <form class="formulario" method="POST">
@@ -132,7 +132,7 @@
                     </fieldset>
 
                     <div class="d-flex justify-content-end mb-4">
-                        <input type="submit" value="Comentar" class="boton">
+                        <input type="submit" onclick="alertaComentario()" value="Comentar" class="boton">
                     </div>
                 </form>
             </div>
